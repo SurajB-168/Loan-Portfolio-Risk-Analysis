@@ -1,0 +1,19 @@
+Branch_ID,Branch_Name,Branch_State,Region
+BR001,Mumbai Andheri,Maharashtra,West
+BR002,Mumbai Borivali,Maharashtra,West
+BR003,Delhi Connaught Place,Delhi,North
+BR004,Delhi Rohini,Delhi,North
+BR005,Bengaluru Koramangala,Karnataka,South
+BR006,Bengaluru Whitefield,Karnataka,South
+BR007,Hyderabad Banjara Hills,Telangana,South
+BR008,Chennai Anna Nagar,Tamil Nadu,South
+BR009,Pune Kothrud,Maharashtra,West
+BR010,Kolkata Salt Lake,West Bengal,East
+BR011,Ahmedabad Navrangpura,Gujarat,West
+BR012,Jaipur Malviya Nagar,Rajasthan,North
+BR013,Lucknow Gomti Nagar,Uttar Pradesh,North
+BR014,Surat Adajan,Gujarat,West
+BR015,Chandigarh Sector 17,Chandigarh,North
+BR016,Indore Vijay Nagar,Madhya Pradesh,Central
+BR017,Nagpur Dharampeth,Maharashtra,Central
+BR018,Bhopal MP Nagar,Madhya Pradesh,Central
