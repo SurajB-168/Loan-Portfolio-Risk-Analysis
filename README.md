@@ -67,11 +67,11 @@ The two tables are linked through `Branch_ID`.
 
 **Page 1 — Executive Summary:** KPI cards (total loans, disbursed value, average credit score, default rate), monthly loan trend, approval/rejection split, defaults by employment type, and a branch map — filterable by year and month.
 
-![Executive Summary dashboard](dashboard/executive_summary.png)
+![Executive Summary dashboard](dashboard/Page 1.jpg)
 
 **Page 2 — Detailed Analysis:** applicants by employment type, loan amount by branch, loan amount by purpose, and average days past due by loan purpose.
 
-![Detailed Analysis dashboard](dashboard/detailed_analysis.png)
+![Detailed Analysis dashboard](dashboard/Page 2.jpg)
 
 ## Repository structure
 
