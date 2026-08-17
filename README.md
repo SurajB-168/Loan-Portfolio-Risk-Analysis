@@ -10,9 +10,13 @@ Loan approval decisions were being made on gut feeling and simple assumptions (e
 
 > **What factors make a loan more likely to default, and how can that be used to make better lending decisions?**
 
-## Dataset
+## Problem statement
 
-The raw dataset is **AI-generated synthetic data** built to resemble a realistic Indian retail lending portfolio — Indian applicant names, branch names, states, and regions — and does not represent real people or a real institution. It is included in this repository under `data/raw/` and `data/cleaned/`.
+Loan approvals weren't backed by a clear analysis of who was likely to default, so risky applicants could get approved just as easily as safe ones. This project analyzes the loan data to uncover what actually drives default — using metrics like default rate by employment type, default rate by loan purpose, average credit score (defaulters vs. others), debt-to-income ratio, and days past due — so future lending decisions can be based on evidence rather than guesswork. The full metric list and data requirements were scoped in an initial planning phase before any analysis began.
+
+> The complete write-up — cleaning steps, SQL queries, Python checks, and dashboard walkthrough — is summarized below in **Key findings**, **Portfolio snapshot**, and **Recommendations**.
+
+## Dataset
 
 Two raw files formed the basis of the analysis:
 
@@ -23,7 +27,7 @@ Two raw files formed the basis of the analysis:
 
 The two tables are linked through `Branch_ID`.
 
-
+**Note on data provenance:** This dataset is **AI-generated synthetic data**, created to resemble a realistic Indian retail lending portfolio (Indian applicant names, branch names, states, and regions). It does not represent real individuals, real loans, or real bank data — it was built purely for training/practice purposes on this capstone project.
 
 ## Project workflow
 
@@ -89,13 +93,10 @@ loan-portfolio-risk-analysis/
 ├── loan_portfolio_risk_analysis.ipynb      # pandas validation checks
 ├── dashboard/
 │   ├── loan_portfolio_risk_analysis.pbix   # Power BI file
-│   ├── executive_summary.png
-│   └── detailed_analysis.png
-├── presentation/
-│   └── loan_portfolio_risk_analysis.pptx   # summary deck
-└── docs/
-    ├── problem_statement.pdf               # Phase 1: problem definition & planning
-    └── final_report.pdf                    # full write-up (data, cleaning, SQL, findings)
+│   ├── Page 1.jpg                          # Executive Summary screenshot
+│   └── Page 2.jpg                          # Detailed Analysis screenshot
+└── presentation/
+    └── loan_portfolio_risk_analysis.pptx   # summary deck
 ```
 
 ## Tech stack
@@ -109,7 +110,13 @@ loan-portfolio-risk-analysis/
 
 1. Load `data/cleaned/loan_applications_cleaned.csv` and `data/cleaned/branch_master_cleaned.csv` into a MySQL database (schema inferred from the columns referenced in [`loan_portfolio_risk_analysis.sql`](loan_portfolio_risk_analysis.sql)).
 2. Run the SQL script to reproduce the queries and create the `branch_risk_summary` view.
-3. Open [`loan_portfolio_risk_analysis.ipynb`](loan_portfolio_risk_analysis.ipynb) in Jupyter and run all cells (see `requirements.txt` for dependencies).
+3. Open [`loan_portfolio_risk_analysis.ipynb`](loan_portfolio_risk_analysis.ipynb) in Jupyter and run all cells (requires `pandas`, `numpy`, and `openpyxl`).
 4. Open `dashboard/loan_portfolio_risk_analysis.pbix` in Power BI Desktop, point it at the same cleaned dataset / the SQL view, and refresh.
 
+## Data
 
+The dataset (raw and cleaned) is **AI-generated synthetic data** built to resemble a realistic Indian retail lending portfolio — Indian applicant names, branch names, states, and regions — and does not represent real people or a real institution. It is included in this repository under `data/raw/` and `data/cleaned/`.
+
+## Author
+
+**Surajkumar Bevnale**
