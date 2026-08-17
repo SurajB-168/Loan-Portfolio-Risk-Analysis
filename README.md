@@ -16,10 +16,12 @@ Two raw files formed the basis of the analysis:
 
 | File | Description |
 |---|---|
-| `loan_applications.csv` | 5,525 rows × 24 columns — applicant details (age, income, employment type), loan details (amount, interest rate, purpose), and repayment outcomes (default flag, default date, days past due) |
-| `branch_master.csv` | 18 rows × 4 columns — branch name, state, and region |
+| `loan_applications_raw.csv` | 5,525 rows × 24 columns — applicant details (age, income, employment type), loan details (amount, interest rate, purpose), and repayment outcomes (default flag, default date, days past due) |
+| `branch_master_raw.csv` | 18 rows × 4 columns — branch name, state, and region |
 
-The two tables are linked through `Branch_ID`. Raw source data is not included in this repo (see [Data](#data) below).
+The two tables are linked through `Branch_ID`.
+
+**Note on data provenance:** This dataset is **AI-generated synthetic data**, created to resemble a realistic Indian retail lending portfolio (Indian applicant names, branch names, states, and regions). It does not represent real individuals, real loans, or real bank data — it was built purely for training/practice purposes on this capstone project.
 
 ## Project workflow
 
@@ -63,11 +65,11 @@ The two tables are linked through `Branch_ID`. Raw source data is not included i
 
 **Page 1 — Executive Summary:** KPI cards (total loans, disbursed value, average credit score, default rate), monthly loan trend, approval/rejection split, defaults by employment type, and a branch map — filterable by year and month.
 
-![Executive Summary dashboard](dashboard/screenshots/executive_summary.png)
+![Executive Summary dashboard](dashboard/executive_summary.png)
 
 **Page 2 — Detailed Analysis:** applicants by employment type, loan amount by branch, loan amount by purpose, and average days past due by loan purpose.
 
-![Detailed Analysis dashboard](dashboard/screenshots/detailed_analysis.png)
+![Detailed Analysis dashboard](dashboard/detailed_analysis.png)
 
 ## Repository structure
 
@@ -75,22 +77,24 @@ The two tables are linked through `Branch_ID`. Raw source data is not included i
 loan-portfolio-risk-analysis/
 ├── README.md
 ├── requirements.txt
-├── sql/
-│   └── loan_portfolio_risk_analysis.sql      # all SQL queries + the branch_risk_summary view
-├── notebook/
-│   └── loan_portfolio_risk_analysis.ipynb    # pandas validation checks
+├── data/
+│   ├── raw/
+│   │   ├── loan_applications_raw.csv       # AI-generated synthetic data (Indian names/locations)
+│   │   └── branch_master_raw.csv           # AI-generated synthetic data (Indian names/locations)
+│   └── cleaned/
+│       ├── loan_applications_cleaned.csv
+│       └── branch_master_cleaned.csv
+├── loan_portfolio_risk_analysis.sql        # all SQL queries + the branch_risk_summary view
+├── loan_portfolio_risk_analysis.ipynb      # pandas validation checks
 ├── dashboard/
-│   ├── loan_portfolio_risk_analysis.pbix     # Power BI file
-│   └── screenshots/
-│       ├── executive_summary.png
-│       └── detailed_analysis.png
+│   ├── loan_portfolio_risk_analysis.pbix   # Power BI file
+│   ├── executive_summary.png
+│   └── detailed_analysis.png
 ├── presentation/
-│   └── loan_portfolio_risk_analysis.pptx     # summary deck
-├── docs/
-│   ├── problem_statement.md                  # Phase 1: problem definition & planning
-│   └── final_report.md                       # full write-up (data, cleaning, SQL, findings)
-└── data/
-    └── README.md                             # notes on the (excluded) raw dataset
+│   └── loan_portfolio_risk_analysis.pptx   # summary deck
+└── docs/
+    ├── problem_statement.pdf               # Phase 1: problem definition & planning
+    └── final_report.pdf                    # full write-up (data, cleaning, SQL, findings)
 ```
 
 ## Tech stack
@@ -102,14 +106,14 @@ loan-portfolio-risk-analysis/
 
 ## How to reproduce
 
-1. Load `loan_applications` and `branch_master` into a MySQL database (schema inferred from the columns referenced in [`sql/loan_portfolio_risk_analysis.sql`](sql/loan_portfolio_risk_analysis.sql)).
+1. Load `data/cleaned/loan_applications_cleaned.csv` and `data/cleaned/branch_master_cleaned.csv` into a MySQL database (schema inferred from the columns referenced in [`loan_portfolio_risk_analysis.sql`](loan_portfolio_risk_analysis.sql)).
 2. Run the SQL script to reproduce the queries and create the `branch_risk_summary` view.
-3. Open [`notebook/loan_portfolio_risk_analysis.ipynb`](notebook/loan_portfolio_risk_analysis.ipynb) in Jupyter and run all cells (requires the cleaned dataset as an `.xlsx`/`.csv` — see `requirements.txt` for dependencies).
+3. Open [`loan_portfolio_risk_analysis.ipynb`](loan_portfolio_risk_analysis.ipynb) in Jupyter and run all cells (see `requirements.txt` for dependencies).
 4. Open `dashboard/loan_portfolio_risk_analysis.pbix` in Power BI Desktop, point it at the same cleaned dataset / the SQL view, and refresh.
 
 ## Data
 
-The raw and cleaned datasets are not included in this repository (they are internal/sample training data). See [`data/README.md`](data/README.md) for the expected schema if you want to reproduce the analysis with your own loan data.
+The dataset (raw and cleaned) is **AI-generated synthetic data** built to resemble a realistic Indian retail lending portfolio — Indian applicant names, branch names, states, and regions — and does not represent real people or a real institution. It is included in this repository under `data/raw/` and `data/cleaned/`.
 
 ## Author
 
