@@ -28,8 +28,6 @@ Two raw files formed the basis of the analysis:
 
 The two tables are linked through `Branch_ID`.
 
-**Note on data provenance:** This dataset is **AI-generated synthetic data**, created to resemble a realistic Indian retail lending portfolio (Indian applicant names, branch names, states, and regions). It does not represent real individuals, real loans, or real bank data — it was built purely for training/practice purposes on this capstone project.
-
 ## Project workflow
 
 1. **Data cleaning (Excel)** — removed exact duplicates, left genuinely missing values blank instead of guessing them, traced and fixed an interest-rate formatting bug, and flagged records with inconsistent default data for the source system to correct.
